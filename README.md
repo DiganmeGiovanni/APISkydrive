@@ -1,12 +1,17 @@
 APISkydrive
 ===========
 
-This repository show the ussage of the APIs from Skydrive.\n
-This respository is for personal learning.\n
+<p>
+  This repository show the ussage of the APIs from Skydrive.<br>
+  This respository is for personal learning.
+</p>
 
-Feel free to share and change the code. Play with it!
+<p>
+  Feel free to share and change the code. Play with it!
+</p>
 
-
-@author: Giovanni Aguirre (DiganmeGiovanni)
-@twitter: @DiganmeGiovanni
-@email: giovanni.fi05@gmail.com
+<p>
+  @author: Giovanni Aguirre (DiganmeGiovanni)<br>
+  @twitter: @DiganmeGiovanni<br>
+  @email: giovanni.fi05@gmail.com<br>
+</p>
