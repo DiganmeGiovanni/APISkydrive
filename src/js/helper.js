@@ -6,7 +6,7 @@
 
 // CONSTANTES:
 var APP_CLIENT_ID = "00000000400EAA45";
-var REDIRECT_URL = "http://transferoncloud.com";
+var REDIRECT_URL = "http://transferoncloud.com/APISkydrive/src/index.html";
 
 function showMsg(msg)
 {
