@@ -10,24 +10,18 @@ var REDIRECT_URL = "http://transferoncloud.com/APISkydrive/src/index.html";
 
 $(document).ready(function()
 {
-	//WL.Event.subscribe("auth.login", onLogin);
+	//WL.Event.subscribe("auth.login", onLogin); // Suscribe un escuchador de evento
 	WL.init({
 		client_id: APP_CLIENT_ID,
         redirect_uri: REDIRECT_URL,
         scope: "wl.signin",
         response_type: "token"
 	});
-	/*WL.ui({
-		name: "signin",
-		element: "signin"
-	})*/
 })
 
-function init()
-{
-
-}
-
+/**
+ *  @Deprecated, util solocon el escuchador de evento
+ */
 function onLogin(session)
 {
 	if (!session.error)
@@ -49,15 +43,20 @@ function onLogin(session)
 	}
 }
 
+/** Esta funcion es ejecutada por el boton: iniciarSesion */
 function logear()
 {
-	WL.login({
+	WL.login
+	({
         scope: ["wl.signin", "wl.basic"]
-    }).then(
-        function (session) {
+    }).then
+    (
+        function (session) 
+        {
             document.getElementById("info").innerText = "Signed in. Gio :)";
         },
-        function (sessionError) {
+        function (sessionError) 
+        {
             document.getElementById("info").innerText = 
                 "Error signing in: " + sessionError.error_description;
         }
