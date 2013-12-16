@@ -17,10 +17,10 @@ $(document).ready(function()
         scope: "wl.signin",
         response_type: "token"
 	});
-	WL.ui({
+	/*WL.ui({
 		name: "signin",
 		element: "signin"
-	})
+	})*/
 })
 
 function init()
@@ -55,7 +55,7 @@ function logear()
         scope: ["wl.signin", "wl.basic"]
     }).then(
         function (session) {
-            document.getElementById("info").innerText = "Signed in.";
+            document.getElementById("info").innerText = "Signed in. Gio :)";
         },
         function (sessionError) {
             document.getElementById("info").innerText = 
