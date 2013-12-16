@@ -51,10 +51,11 @@ function logear()
         scope: ["wl.signin", "wl.basic"]
     }).then
     (
-        function (session) 
+        /*function (session) 
         {
             document.getElementById("info").innerText = "Signed in. Gio :)";
-        },
+        },*/
+        onLogin(session),
         function (sessionError) 
         {
             document.getElementById("info").innerText = 
