@@ -13,7 +13,7 @@ function showMsg(msg)
 	alert(msg);
 }
 
-function login()
+function init()
 {
 	WL.Event.subscribe("auth.login", onLogin);
 	WL.init({
