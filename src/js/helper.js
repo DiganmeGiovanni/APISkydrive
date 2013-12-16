@@ -8,12 +8,7 @@
 var APP_CLIENT_ID = "00000000400EAA45";
 var REDIRECT_URL = "http://transferoncloud.com/APISkydrive/src/index.html";
 
-function showMsg(msg)
-{
-	alert(msg);
-}
-
-function init()
+$(document).ready(function()
 {
 	WL.Event.subscribe("auth.login", onLogin);
 	WL.init({
@@ -26,6 +21,11 @@ function init()
 		name: "signin",
 		element: "signin"
 	})
+})
+
+function init()
+{
+
 }
 
 function onLogin(session)
