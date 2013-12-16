@@ -10,7 +10,7 @@ var REDIRECT_URL = "http://transferoncloud.com/APISkydrive/src/index.html";
 
 $(document).ready(function()
 {
-	WL.Event.subscribe("auth.login", onLogin);
+	//WL.Event.subscribe("auth.login", onLogin);
 	WL.init({
 		client_id: APP_CLIENT_ID,
         redirect_uri: REDIRECT_URL,
