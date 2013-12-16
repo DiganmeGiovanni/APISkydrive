@@ -48,3 +48,18 @@ function onLogin(session)
 		document.getElementById("info").innerText = "Error signing in: " + session.error_description;
 	}
 }
+
+function logear()
+{
+	WL.login({
+        scope: ["wl.signin", "wl.basic"]
+    }).then(
+        function (session) {
+            document.getElementById("info").innerText = "Signed in.";
+        },
+        function (sessionError) {
+            document.getElementById("info").innerText = 
+                "Error signing in: " + sessionError.error_description;
+        }
+    );
+}
