@@ -17,6 +17,7 @@ $(document).ready(function()
         redirect_uri: REDIRECT_URL,
         //scope: "wl.signin",
         //response_type: "token"
+        Console.log("Que chido");
 	});
 })
 
