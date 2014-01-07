@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aprendiendo APIs de skydrive</title>
+        <meta charset="UTF-8">
+        
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="http://js.live.net/v5.0/wl.js"></script>
+        <script type="text/javascript" src="js/readingFiles.js"></script>
+    </head>
+    
+    <body>
+        <h1>Bienvenido, ahora vamos a leer informacion sobre archivos en skydrive</h1>
+        
+        <!-- Iniciar y cerrar seesion -->
+        <button onclick="loginUser()">Iniciar sesion</button>
+        <button onclick="closeSession()">Cerrar sesion</button><br><br>
+        
+        <a id="listar-archivos" href="javascript: void(0)" onclick="listarArchivos(null)">
+            Mostrar mis archivos de skydrive
+        </a><br>
+        <a id="listar-folders" href="javascript: void(0);" onclick="listarFolders()">
+            Mostrar mis folders principales
+        </a><br>
+        <a id="listar-folder" href="javascript: void(0);" onclick="listarUnFolder()">
+            Mostrar los elementos de un folder particular
+        </a>
+
+        <!-- Estas lineas solo son para mostrar resultados: -->
+        <br><br><br><br>
+        <span style="color: red">Resultado:</span><br>
+        <div id="info"></div>
+    </body>
+</html>
