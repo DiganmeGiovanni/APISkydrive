@@ -4,10 +4,33 @@
 <html>
 <head>
     <title>Reproduciendo pistas musicales desde skydrive</title>
+    <meta charset="UTF-8">
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://js.live.net/v5.0/wl.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
 </head>
 <body>
-    <audio controls src="http://tptsxa.bn1304.livefilestore.com/y2mI7ma8LgPMyZc0tgamJXFDoPy0JKXIt03PSfySftyIssp8P1MIBbHLxT4le-6ePXzHYk8sUySWLTekQzW4uKj2rVQomyfmrwRLfPstyzsVEE/02%20A%20la%20primera%20persona.mp3?psid=1">
-        Tu browser no soporta audio.
-    </audio>
+    
+    <h1>Cloud Noises!</h1>
+    <h3>Reproduce tu musica de Skydrive, Google Drive, Dropbox y mas</h3>
+    
+    <button id="iniciar-sesion" onclick="loginUser()">Iniciar sesion</button>
+    <button id="cerrar-sesion" onclick="logoutUser()">Cerrar sesion</button>
+    
+    <br><br>
+    <div id="toolbar">
+        <button onclick="agregarFolder()">Agregar folder a la lista</button>
+        <button onclick="agregarArchivos()">Agregar un archivo a la lista</button>
+        <audio id="audio-player" controls onended="nextSong()" src="http://tptsxa.bn1304.livefilestore.com/y2mI7ma8LgPMyZc0tgamJXFDoPy0JKXIt03PSfySftyIssp8P1MIBbHLxT4le-6ePXzHYk8sUySWLTekQzW4uKj2rVQomyfmrwRLfPstyzsVEE/02%20A%20la%20primera%20persona.mp3?psid=1">
+            Tu browser no soporta audio.
+        </audio>
+        <button id="next-song" onclick="nextSong()">Siguiente</button>
+        <button id="prev-song" onclick="prevSong()">Anterior</button>
+    </div>
+    
+    <div id="playlist" style="background: #F8F8F8">
+        <br><br>
+    </div>
 </body>
 </html>

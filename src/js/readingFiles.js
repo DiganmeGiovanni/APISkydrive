@@ -145,6 +145,55 @@ function encolarArchivos(filtro, recursividad, folderPath, files)
     );
 }
 
+function encolarArtistas(recursividad, folderPath, artistas)
+{
+    WL.api({
+        path: folderPath,
+        method: "GET"
+    }).then(
+        function (response) 
+        {
+            for (var i = 0; i < response.data.length; i++) 
+            {
+                if (recursividad === true && response.data[i].type === "folder") 
+                {
+                    encolarArtistas(recursividad, response.data[i].id + "/files", artistas);
+                };
+                if (response.data[i].type === "audio" && artistas.indexOf(response.data[i].artist) < 0)
+                {
+                    artistas.push(response.data[i].artist);
+                    console.log("Agregado --> " + response.data[i].name);
+                }
+            }
+            console.log("EL ARREGLO CONTIENE: " + artistas.length + " elementos");
+            mostrarLista(artistas);
+        },
+        function (error_response) 
+        {
+            console.log("Ocurrio un error al tratar de crear la lista de archivos");
+        }
+    );
+}
+
+// Busca audio dentro del folder y agrega elementos 'audio' para permitir reproducir
+// los archivos encontrados.
+function encolarAudios(recursividad, folderPath, audios) {
+    WL.api({
+        path: folderPath,
+        method: "GET"
+    }).then(
+        function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                if (response.data[i].type === "audio")
+                {
+                    audios.push("<audio controls src=\"" + response.data[i].source + "\" >Tu navegador no soporta audio</audio>");
+                };
+            };
+            mostrarLista(audios);
+        }
+    )
+}
+
 // Muestra un file-picker de skydrive, permite seleccionar un forlder
 // y lista los archivos de audio encontrados en este.
 function listarCanciones() 
@@ -187,6 +236,44 @@ function buscarAudioRecursivo()
         function (error_response) 
         {
             console.log("Ocurrio un error al seleccionar un folder");
+        }
+    )
+}
+
+// Analiza recursivamente una carpeta buscando artistas de cada archivo de audio
+// Muestra una lista con los artistas encontrados en los 'audio'.
+function buscarArtistas() {
+    WL.fileDialog({
+        mode: 'save',
+        select: 'single'
+    }).then(
+        function (response) 
+        {
+            var artistas = [];
+            encolarArtistas(true, response.data.folders[0].id + "/files", artistas);
+            mostrarLista(artistas);
+        },
+        function (error_response) {
+            console.log("Error al elegir un folder");
+        }
+    );
+}
+
+// Permite elegir un folder desde skydrive y permite reproducir las canciones
+// encontradas en el folder.
+function resproducirFolder() {
+    WL.fileDialog({
+        mode: 'save',
+        select: 'single'
+    }).then(
+        function (response) 
+        {
+            var audios = [];
+            encolarAudios(false, response.data.folders[0].id + "/files", audios);
+        },
+        function (error_response) 
+        {
+            console.log("Error al elegir un folder");
         }
     )
 }
